@@ -18,7 +18,7 @@ const construirPerfil = (datos) => {
   return {
     nombre:  datos.name,
     usuario: "@" + datos.login,
-    email:   datos.email   || "No disponible",
+    email:   datos.email   || "Correo no disponible",
     ciudad:  datos.location || "Sin ubicación",
     avatar:  datos.avatar_url,
   };
@@ -53,6 +53,7 @@ const cargarUsuario = async () => {
     renderizarPerfil(perfil);
     mostrarEtiquetas(habilidades);
 
+    document.querySelector("#tarjeta").style.display = "flex";
     mensaje.textContent = "";
   } catch (error) {
     mensaje.textContent = "Error al cargar usuario";
